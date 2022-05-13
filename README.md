@@ -1,5 +1,5 @@
 # MARKET PLACE E2E
-This project is a test task for an end-to-end test for Market Place.
+This project is a test task for an end-to-end test for [Market Place](https://marketplace.staging.myautochek.com/ng).
 
 ## Getting Started
 
