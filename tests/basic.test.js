@@ -1,4 +1,6 @@
-import { Selector } from "testcafe";
+import { Selector } from "testcafe"
+import randomEmail from "random-email"
+import { RegisterForm as registrationForm, subMitForm }  from "./RegisterFormInput"
 
 const waitTime = 2000
 
@@ -18,21 +20,28 @@ test("Sign in error", async t => {
     await t
         .click(signIn)
         .wait(waitTime)
+    
+    // register user
+    registrationForm(email, password)
+    subMitForm()
+    
+    // wait for page to load
+    await t.wait(waitTime)
 
-    // fetch email, password, and log in objects
-    const emailInput = Selector('.input').withAttribute('type', 'email')
-    const passwordlInput = Selector('.input').withAttribute('type', 'password')
-    const loginButton = Selector('.button')
+    // // fetch email, password, and log in objects
+    // const emailInput = Selector('.input').withAttribute('type', 'email')
+    // const passwordlInput = Selector('.input').withAttribute('type', 'password')
+    // const loginButton = Selector('.button')
     
-    // enter email and password
-    await t
-        .typeText(emailInput, email)
-        .typeText(passwordlInput, password)
+    // // enter email and password
+    // await t
+    //     .typeText(emailInput, email)
+    //     .typeText(passwordlInput, password)
     
-    // click on login button
-    await t
-        .click(Selector(loginButton).withAttribute('type', 'submit'))
-        .wait(waitTime)
+    // // click on login button
+    // await t
+    //     .click(Selector(loginButton).withAttribute('type', 'submit'))
+    //     .wait(waitTime)
     
     // fetch error object
     const errorMessage = Selector('#swal2-content')
@@ -40,5 +49,12 @@ test("Sign in error", async t => {
     // assert that error is displayed
     await t
         .expect(Selector(errorMessage).textContent).eql('User not found. Please sign up')
+    
+})
+
+test('Register new user', async t => {
+    // generate random email
+    const emailAddress = randomEmail()
+
     
 })
