@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome ./tests"
+    "test": "testcafe chrome ./tests",
+    "testCi": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/testcafe/results.xml"
   },
   "keywords": [],
   "author": "",
