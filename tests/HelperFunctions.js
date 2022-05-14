@@ -2,12 +2,11 @@
 import { Selector, t } from "testcafe"
 
 /**
- * this handles filling in the registration form steps
+ * this handles filling in the sign in form steps
  * @param {String} email enter user email
  * @param {String} password enter user password
- * @param t pass testcafe t object
  */
-export async function RegisterForm(email, password) {
+export async function signInForm(email, password) {
     // fetch email, and password objects
     const emailInput = Selector('.input').withAttribute('type', 'email')
     const passwordlInput = Selector('.input').withAttribute('type', 'password')
@@ -30,3 +29,19 @@ export async function subMitForm() {
     await t
         .click(Selector(loginButton))
 }
+
+// /**
+//  * click on the sign in or register buttons
+//  * @param {Number} nth the index number of either element
+//  */
+// export async function signInOrRegisterButton(nth) {
+//     const signInorRegister = Selector('.profile-menu').child(nth)
+//     // click button
+//     await t
+//         .click(Selector(signInorRegister))
+//         .wait(waitTime)
+// }
+
+// export async function registrationForm() {
+    
+// }
