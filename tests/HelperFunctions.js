@@ -29,19 +29,3 @@ export async function subMitForm() {
     await t
         .click(Selector(loginButton))
 }
-
-// /**
-//  * click on the sign in or register buttons
-//  * @param {Number} nth the index number of either element
-//  */
-// export async function signInOrRegisterButton(nth) {
-//     const signInorRegister = Selector('.profile-menu').child(nth)
-//     // click button
-//     await t
-//         .click(Selector(signInorRegister))
-//         .wait(waitTime)
-// }
-
-// export async function registrationForm() {
-    
-// }
