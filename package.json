@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "testcafe chrome ./tests",
-    "testCi": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/testcafe/results.xml"
+    "testCi": "testcafe chrome:headless tests/**/* -r xunit:/tmp/test-results/testcafe/results.xml",
+    "pre-commit": "lint-staged"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +18,19 @@
     "random-name": "^0.1.2"
   },
   "devDependencies": {
-    "prettier": "2.6.2",
+    "lint-staged": "^12.4.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.6.2",
     "testcafe": "^1.18.6",
     "testcafe-reporter-xunit": "^2.2.1"
+  },
+  "pre-commit": [
+    "pre-commit"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
